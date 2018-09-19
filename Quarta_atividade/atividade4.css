@@ -1,0 +1,88 @@
+*{
+    padding: 0px;
+    margin: 0px;
+    font-family: "arial", sans-serif;
+}
+.imagem > img{
+    float: left; 
+    height:43px;
+    padding: 10px 15px
+}
+h2{
+    float:right;
+    font-size: 15px;
+    padding: 10px 15px
+
+}
+.Navegaçao{
+    width: 100%;
+    overflow: hidden;
+    background-color: #4CAF50;                    
+    
+}
+.Navegaçao ul{
+    list-style: none;
+}
+.Navegaçao .tutor{
+    float: left;
+    width: 10%
+}
+.Navegaçao .parte1{
+    text-align: center;
+    padding: 10px;
+    color: white;
+    cursor: pointer;
+}
+.Navegaçao .opçoes{
+    position: absolute;
+    left: 0;
+    width: 100%;
+    background-color: rgb(225,225,225);
+    display: none;
+    z-index: 5;
+    
+}
+.Navegaçao .opçoes ul{
+    width: 15%;
+    float: left;
+}
+.Navegaçao .opçoes .titulo{
+    padding: 10px;
+    display: block;
+    font-weight: bold;
+    color: black;
+}
+.Navegaçao .opçoes a{
+    padding: 10px;
+    display: block;
+    text-decoration: none;
+    color: black;
+}
+.parte:hover{
+    background-color:white;
+    color: black;
+}
+.opçoes a:hover{
+    background-color:rgb(200, 200, 200);
+    color: black;
+}
+.parte1:hover .opçoes{
+    display: block;
+}
+.nav-image{
+    padding:0px 10px;
+    position: relative; 
+    float: right;
+    height: 38px;
+    cursor: pointer;
+}
+
+.estilo{
+    width: 20%;
+    height: 100vh;
+    float: left;
+    background-color:white;
+    box-shadow: 3px 2px 5px rgba(0, 0, 0, 0.5);
+    z-index: -1;
+    
+}
