@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link href="styles/style.css" rel="stylesheet" type="text/css">
+    <style>
+    *{
+        margin: 0;
+        padding: 0;
+        border:none;
+        box-sizing: border-box;
+        text-decoration: none;
+        font-family: sans-serif;
+    }
+    .Menu-esquerdo{
+	width: 20%;
+	height: 100vh;
+	background-color:tomato;
+	position: fixed;
+	top: 0;
+	left: 0;
+	transition: transform 1s;
+    z-index: 3;
+    }
+    .Menu-esquerdo a{
+        display: flex;
+        text-decoration: navajowhite;
+        text-align: center;
+        color: #fff;
+        padding: 20px;
+	    cursor: pointer;
+    }
+    .Menu-esquerdo a:hover{
+        background-color: slategrey;
+    }
+    .menu-esquerdo-move{
+    transform: translate(100%, 0);
+    }
+    .sobreposicao{
+    opacity: 0;
+	position: fixed;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100vh;
+	background-color: rgba(0,0,0,.8);
+	z-index: -2;
+	transition: all 1s linear;	
+    }
+    .sobreposicao-action{
+	opacity: 1;
+    z-index: 2;
+    }
+    .container{
+        float: right;
+        width: 70%;
+    }
+    .cabecalho{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 10px;
+    background-color:red;
+    }
+    .cabecalho .menu-icon{
+	display: none;
+	padding: 0 5px;
+	font-size: 30px;
+	background-color: red;
+	border-radius: 5px;
+	margin-right: 10px;
+	cursor: pointer;
+    }
+    .corpo{
+	width: 100%;
+	height: 150vh;
+	padding: 30px;
+    background-color: #888;
+    }
+    .acordeon{
+	width: 80%;
+    margin: auto;
+    }
+    .acordeon .acordeon-label a{
+	display: block;
+	background-color:tomato;
+	padding: 10px;
+    cursor: pointer;
+    }
+    .acordeon-conteudo-action{
+	max-height: 400px ! important;
+    color: #eee;
+    }
+    .acordeon-conteudo{
+	background-color: #aaa;
+	max-height: 0;
+	overflow: hidden;
+    }
+.acordeon .acordeon-conteudo p{
+	text-align:center;
+    padding: 10px;
+    }
+    @media screen and (max-width: 479px){
+	.menu-lateral{
+		left: -40%;
+		width: 40%;
+	}
+	.container{
+		width: 100%;
+	}
+	.cabecalho .menu-icon{
+		display: block;
+	}
+}
+</style>
+</head>
+<body>
+    <div class="Menu-esquerdo">
+        <a>Berlin</a>
+        <a>Moscou</a>
+        <a>Tokio</a>
+        <a>Denver</a>
+        <a>Nairobi</a>
+    </div>
+    <div class="sobreposicao"></div>
+    <div class="container">
+    <header class="cabecalho">
+        <span class="menu-icon"> &#9776;</span>
+        <h1>La pagina de papel </h1>
+    </header>
+    <div class="corpo">
+        <div class="acordeon">
+            <div class="acordeon-label">
+                <a class="btn" >Plano 1</a>
+            </div>
+            <div class="acordeon-conteudo">
+                <p> O assalto acontecerá na casa de papel mexicana, no dia tal
+                    na hora, tal, não esqueceçam de capturar o cordeirinho, cuidado 
+                    com a tokyo, ela pode colocar tudo a perder, o chefe é berlin
+                    o resto é blablablalbalbla blablablalbalbla blablablalbalbla
+                    blablablalbalbla blablablalbalbla blablablalbalbla blablablal
+                </p>
+            </div>
+         </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+    let menu_icon = document.querySelector(".menu-icon");
+    let menu_esquerdo = document.querySelector(".menu-esquerdo");
+    let sobreposicao = document.querySelector(".sobreposicao");
+    let acordeon_list = document.querySelectorAll(".acordeon");
+    
+        function acao(){
+        menu_esquerdo.classList.toggle("menu-esquerdo-move");
+        sobreposicao.classList.toggle("sobreposicao-action");
+    }
+        menu_icon.addEventListener("click", acao);
+    sobreposicao.addEventListener("click", acao);
+        for(acordeon of acordeon_list){
+        let acordeon_conteudo = acordeon.querySelector(".acordeon-conteudo");
+        let acordeon_btn = acordeon.querySelector(".acordeon-label");
+            acordeon_btn.addEventListener("click", function(){
+            acordeon_conteudo.classList.toggle("acordeon-conteudo-action");
+        });
+    }
+    </script>
+    
+        
+</body>
+</html>
